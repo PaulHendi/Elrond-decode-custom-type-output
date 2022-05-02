@@ -80,7 +80,6 @@ class ABI_Interpreter (Formatter):
             else :
                 print("ERROR: format not recognized yet")
 
-            print(struct)
             data_index+=1
             if pointer == len(struct_raw) : 
                 break
