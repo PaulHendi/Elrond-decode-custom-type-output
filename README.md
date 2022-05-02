@@ -4,7 +4,7 @@ Python script to decode custom types (Struct and enum) using the corresponding A
 
 ## Librairies
 
-[Erdpy](https://docs.elrond.com/sdk-and-tools/erdpy/installing-erdpy/) 
+[Erdpy](https://docs.elrond.com/sdk-and-tools/erdpy/installing-erdpy/) Used for "Address" conversion (hex to Bech32)
 
 
 ## How to 
