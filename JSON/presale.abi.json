@@ -1,0 +1,254 @@
+{
+    "buildInfo": {
+        "rustc": {
+            "version": "1.59.0-nightly",
+            "commitHash": "475b00aa4037461b506539a06d15ca6091b461a7",
+            "commitDate": "2021-12-24",
+            "channel": "Nightly",
+            "short": "rustc 1.59.0-nightly (475b00aa4 2021-12-24)"
+        },
+        "contractCrate": {
+            "name": "presale",
+            "version": "0.0.0"
+        },
+        "framework": {
+            "name": "elrond-wasm",
+            "version": "0.30.0"
+        }
+    },
+    "name": "Presale",
+    "constructor": {
+        "inputs": [],
+        "outputs": []
+    },
+    "endpoints": [
+        {
+            "name": "devAddress",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "Address"
+                }
+            ]
+        },
+        {
+            "name": "presalePause",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "goldenInSC",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "setPackageInfos",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "bandit_cost",
+                    "type": "BigUint"
+                },
+                {
+                    "name": "bandit_tokens",
+                    "type": "BigUint"
+                },
+                {
+                    "name": "bandit_number",
+                    "type": "u16"
+                },
+                {
+                    "name": "fighter_cost",
+                    "type": "BigUint"
+                },
+                {
+                    "name": "fighter_tokens",
+                    "type": "BigUint"
+                },
+                {
+                    "name": "fighter_number",
+                    "type": "u16"
+                },
+                {
+                    "name": "hunter_cost",
+                    "type": "BigUint"
+                },
+                {
+                    "name": "hunter_tokens",
+                    "type": "BigUint"
+                },
+                {
+                    "name": "hunter_number",
+                    "type": "u16"
+                },
+                {
+                    "name": "wizard_cost",
+                    "type": "BigUint"
+                },
+                {
+                    "name": "wizard_tokens",
+                    "type": "BigUint"
+                },
+                {
+                    "name": "wizard_number",
+                    "type": "u16"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "getPackageInfos",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "package",
+                    "type": "u8"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "PackageInfos"
+                }
+            ]
+        },
+        {
+            "name": "addWhitelistAddresses",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "addresses",
+                    "type": "variadic<Address>",
+                    "multi_arg": true
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "isWhitelisted",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "address",
+                    "type": "Address"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "startPresale",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [],
+            "outputs": []
+        },
+        {
+            "name": "pausePresale",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [],
+            "outputs": []
+        },
+        {
+            "name": "setDevAddress",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "address",
+                    "type": "Address"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "sendTokens",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "payableInTokens": [
+                "*"
+            ],
+            "inputs": [],
+            "outputs": []
+        },
+        {
+            "name": "getPackagesLeft",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "package",
+                    "type": "u8"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "u16"
+                }
+            ]
+        },
+        {
+            "docs": [
+                "Add desired amount to the storage variable."
+            ],
+            "name": "buyPresale",
+            "mutability": "mutable",
+            "payableInTokens": [
+                "EGLD"
+            ],
+            "inputs": [
+                {
+                    "name": "package",
+                    "type": "u8"
+                },
+                {
+                    "name": "num_of_packages",
+                    "type": "u16"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "Withdraw",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [],
+            "outputs": []
+        }
+    ],
+    "hasCallback": false,
+    "types": {
+        "PackageInfos": {
+            "type": "struct",
+            "fields": [
+                {
+                    "name": "cost",
+                    "type": "BigUint"
+                },
+                {
+                    "name": "tokens",
+                    "type": "BigUint"
+                },
+                {
+                    "name": "left",
+                    "type": "u16"
+                }
+            ]
+        }
+    }
+}
