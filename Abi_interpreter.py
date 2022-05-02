@@ -58,7 +58,7 @@ class ABI_Interpreter (Formatter):
 
                 size_bigUint = 2*self.hex_to_num(struct_raw[pointer:pointer+SIMPLE_DATA_SIZE["size"]])
                 pointer += SIMPLE_DATA_SIZE["size"]
-                struct[data_name] = self.BigInt_to_int(self.hex_to_num(struct_raw[pointer: pointer+size_bigUint]), DECIMALS["EGLD"])
+                struct[data_name] = self.hex_to_num(struct_raw[pointer: pointer+size_bigUint]) # Can use self.BigInt_to_int(blabla, DECIMALS["EGLD"]) if necessary
                 pointer += size_bigUint
 
             elif (data_type == "Address") :
