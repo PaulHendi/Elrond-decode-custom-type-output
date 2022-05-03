@@ -256,6 +256,66 @@
                 }
             ]
         },
+        "Bid": {
+            "type": "struct",
+            "fields": [
+                {
+                    "name": "bidder",
+                    "type": "Address"
+                },
+                {
+                    "name": "amount",
+                    "type": "BigUint"
+                },
+                {
+                    "name": "token",
+                    "type": "TokenIdentifier"
+                },
+                {
+                    "name": "time",
+                    "type": "u64"
+                }
+                ]
+            },
+            "BidLink": {
+                "type": "struct",
+                "fields": [
+                    {
+                        "name": "bid",
+                        "type": "Bid"
+                    },
+                    {
+                        "name": "nodes",
+                        "type": "Nodes"
+                    }
+                ]
+            },
+            "BidRef": {
+                "type": "struct",
+                "fields": [
+                    {
+                        "name": "index",
+                        "type": "u32"
+                    },
+                    {
+                        "name": "amount",
+                        "type": "BigUint"
+                    }
+                ]
+            },
+            "Nodes": {
+                "type": "struct",
+                "fields": [
+                    {
+                        "name": "previous",
+                        "type": "Option<BidRef>"
+                    },
+                    {
+                        "name": "next",
+                        "type": "Option<BidRef>"
+                    }
+                ]
+            },        
         "Voter": {
             "type": "struct",
             "fields": [

@@ -215,6 +215,9 @@
                 }
             ]
         },
+        
+        
+        
         "Voter": {
             "type": "struct",
             "fields": [

@@ -22,9 +22,10 @@ type_name = args.type_name
 # ---------------------------------------------------------------- #
 
 abi_interpreter = ABI_Interpreter(abi_filename)
-output = abi_interpreter.decode_custom_type(type_name, hex_to_decode)
+struct = {}
+output = abi_interpreter.decode_custom_type(struct, type_name, hex_to_decode)
 
-print(output)
+print(output[0])
 
 # Test avec dao.abi.json
 # type name : Proposal
@@ -49,3 +50,6 @@ print(output)
 # Test 4 avec doic.json
 # Type name : doic
 # hex : 616363315f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f0000000c61756374696f6e5f6e616d65000000010900000001020000000445474c4400000000000186a00000000000855ca0000000010200
+
+
+# python3 main.py --abi auction-esdt.abi.json --hex 616363325f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f00000001020000000445474c4400000000000186a00001000000020000000103 --type_name BidLink
