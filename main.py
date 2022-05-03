@@ -25,7 +25,7 @@ type_name = args.type_name
 
 abi_interpreter = ABI_Interpreter(abi_filename)
 struct = {}
-output = abi_interpreter.decode_custom_type(struct, type_name, hex_to_decode)
+output = abi_interpreter.decode_custom_type(struct, type_name, hex_to_decode, type_name)
 
 print(json.dumps(output[0], indent=4))
 
