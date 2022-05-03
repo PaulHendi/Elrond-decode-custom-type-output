@@ -1,4 +1,6 @@
 import argparse
+import json
+
 from Abi_interpreter import ABI_Interpreter
 
 
@@ -25,7 +27,8 @@ abi_interpreter = ABI_Interpreter(abi_filename)
 struct = {}
 output = abi_interpreter.decode_custom_type(struct, type_name, hex_to_decode)
 
-print(output[0])
+print(json.dumps(output[0], indent=4))
+
 
 # Test avec dao.abi.json
 # type name : Proposal
@@ -39,7 +42,7 @@ print(output[0])
 # type name : PackageInfos
 # hex : 00000008016345785d8a00000000000901158e460913d000000001
 
-# Test 3 avec nft_trading.abi.json (marche pas, prend pas en compte les EsdtTokenPayment encore)
+# Test 3 avec nft_trading.abi.json (marche pas, prend pas encore en compte les EsdtTokenPayment)
 # type name : TxInfos
 # hex : 9a8001df71aabe74c622328d077b90fc62be5972a59f2988a017e4f5c4e3ee4c
 # 00000002020000000d434f4c4f52532d61343830316200000000000000010000000101020000000d434f4c4
