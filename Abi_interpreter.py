@@ -50,9 +50,6 @@ class ABI_Interpreter (Formatter):
             data_type = struct_abi[data_index]["type"]
             data_name= struct_abi[data_index]["name"]
 
-            #print(len(struct_abi))
-            print(struct_raw[pointer:])
-
             if (data_type == "bytes" or data_type == "TokenIdentifier"):  
 
                 size_bytes = 2*self.hex_to_num(struct_raw[pointer:pointer+SIMPLE_DATA_SIZE["size"]])
@@ -120,7 +117,7 @@ class ABI_Interpreter (Formatter):
             else :
                 print("ERROR: format not recognized yet")
 
-            print(struct)
+
             data_index+=1
             if data_index==len(struct_abi) :
                 break
